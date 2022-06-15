@@ -1,0 +1,70 @@
+<style>
+
+#dotsLoader {
+	background-color: rgba(255, 255, 255, 0.1);
+	width: 100%;
+	display: block;
+	text-align: center;
+	padding: 1cm 0;
+	display: none;
+}
+
+#dotsLoader #loader .dot {
+	display: inline-block;
+	padding: 3mm;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 50%;
+	margin: 0 1mm;
+	transition: opacity 0.8s;
+}
+
+</style>
+
+<div id="dotsLoader">
+		
+	<div id="loader">
+		
+		<div class="dot"></div>
+		
+		<div class="dot"></div>
+		
+		<div class="dot"></div>
+		
+	</div>
+	
+</div>
+
+<script>{{JQuery}}</script>
+
+<script>
+	
+	var dotsLoader = {
+		element: $("#dotsLoader"),
+		displaying: true
+	}
+
+	setInterval(function() {
+		
+		setTimeout(function() {
+		
+			dotsLoader["element"].find(".dot").eq(0).css("opacity", ( (dotsLoader["displaying"]) ? "0.2" : "1" ) );
+		
+		}, 100);
+		
+		setTimeout(function() {
+		
+			dotsLoader["element"].find(".dot").eq(1).css("opacity", ( (dotsLoader["displaying"]) ? "0.2" : "1" ) );
+			
+		}, 300);
+		
+		setTimeout(function() {
+		
+			dotsLoader["element"].find(".dot").eq(2).css("opacity", ( (dotsLoader["displaying"]) ? "0.2" : "1" ) );
+		
+		}, 500);
+		
+		dotsLoader["displaying"] = ( (dotsLoader["displaying"]) ? false : true );
+	
+	}, 1000);
+
+</script>
